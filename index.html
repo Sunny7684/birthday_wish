@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff1f7">
+    <title>Happy Birthday Sagari</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="partyCanvas" class="party-canvas" aria-hidden="true"></canvas>
+
+    <audio
+      id="musicSource"
+      class="music-source"
+      preload="auto"
+      loop
+      aria-hidden="true"
+    >
+      <source src="vachindamma.mp3" type="audio/mpeg">
+      <source src="assets/birthday-reference.mp4" type="audio/mp4">
+    </audio>
+
+    <audio
+      id="fireworkAudio"
+      class="music-source"
+      src="fireworks.mpeg"
+      preload="auto"
+      aria-hidden="true"
+    ></audio>
+
+    <audio
+      id="countBeepAudio"
+      class="music-source"
+      src="count-beep.wav"
+      preload="auto"
+      aria-hidden="true"
+    ></audio>
+
+    <div class="cinema-vignette" aria-hidden="true"></div>
+     
+
+    <main class="book" aria-label="Birthday surprise for Sagari">
+      <section class="page page-countdown is-active" data-page="0">
+        <p class="eyebrow"></p>
+        <div class="countdown-shell" aria-live="polite">
+          <button id="countdownStart" class="countdown-start" type="button" aria-label="Start countdown">
+            <span id="countdownNumber" class="countdown-number">4</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="page page-one" data-page="1">
+        <div class="cute-cloud cloud-one"></div>
+        <div class="cute-cloud cloud-two"></div>
+        <div class="hero-heart" aria-hidden="true">🥰</div>
+        <p class="eyebrow"></p>
+        <p class="lead excited-line">Are you excited for what next?</p>
+        <div class="choice-row">
+          <button id="yesButton" class="primary-button" type="button">Yes</button>
+          <button id="noButton" class="runaway-button" type="button">No</button>
+        </div>
+      </section>
+
+      <section class="page page-balloons" data-page="2">
+        <p class="eyebrow"></p>
+        <h2>Pop all EggsS</h2>
+        <p class="lead">Each Egg has a birthday wish inside.</p>
+        <div id="balloonBoard" class="balloon-board" aria-label="Pop all balloons"></div>
+        <p id="balloonProgress" class="progress-text">0 / 6 wishes opened</p>
+      </section>
+
+      <section class="page page-candle" data-page="3">
+        <p class="eyebrow"></p>
+        <h2>Blow the candle</h2>
+        <p class="lead"></p>
+        <div class="cake" aria-label="Birthday cake with candle">
+          <div class="candle">
+            <span id="flame" class="flame"></span>
+          </div>
+          <div class="cake-layer cake-top"></div>
+          <div class="cake-layer cake-middle"></div>
+          <div class="cake-layer cake-bottom"></div>
+          <div class="plate"></div>
+        </div>
+        <div class="meter" aria-hidden="true"><span id="blowMeter"></span></div>
+        <p id="candleStatus" class="status-text">Tap start, then blow softly near the mic.</p>
+        <button id="micButton" class="primary-button" type="button">Start Mic</button>
+      </section>
+
+      <section class="page page-bouquet" data-page="4">
+        <p class="eyebrow"></p>
+        <h2>Your rose bouquet</h2>
+        <div class="bouquet-wrap" aria-label="Rose bouquet">
+          <div class="roses">
+            <span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span>
+          </div>
+          <div class="leaves" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="stems"></div>
+          <div class="bouquet-paper"></div>
+          <div class="ribbon"></div>
+          <div class="name-plate">HAPPY BIRTH DAY Sagari 💞</div>
+        </div>
+        <button class="primary-button next-button" type="button">Next</button>
+      </section>
+
+      <section class="page page-envelope" data-page="5">
+        <p class="eyebrow"></p>
+        <h2>A message from Didi and Jiju 💞</h2>
+        <div id="envelope" class="envelope" role="button" tabindex="0" aria-label="Tap the envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-front"></div>
+        </div>
+        <p class="tap-note">Tap the envelope</p>
+      </section>
+
+      <section class="page page-letter" data-page="6">
+        <p class="eyebrow"></p>
+        <div class="message-paper floral-letter">
+          <div class="flower-corner corner-top" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="flower-corner corner-bottom" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="letter-content">
+          <h2 id="letterTitle" data-text="Dear Sagari 💞"></h2>
+          <p data-type-text>
+            You are very special to us 🪄 May your birthday bring a heart full of smiles,
+            sweet surprises, and blessings that stay with you all year🎁.
+          </p>
+          <p data-type-text>
+            May you keep shining, keep laughing, and receive every beautiful thing your heart is wishing for.
+          </p>
+          <p class="signature" data-type-text data-text="With love,
+Didi and Jiju 💝">With love 💝, Didi and Jiju</p>
+          </div>
+        </div>
+        <button class="primary-button next-button" type="button">Next</button>
+      </section>
+
+      <section class="page page-stars" data-page="7">
+        <p class="eyebrow"></p>
+        <h2>Stars for Sagari </h2>
+        <p class="lead">Every star carries one blessing for your new year 💝</p>
+        <div class="star-field" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <button class="primary-button next-button" type="button">Next</button>
+      </section>
+
+      <section class="page page-final" data-page="8">
+        <p class="eyebrow"></p>
+        <h2>One last surprise</h2>
+        <div class="gift-box" aria-hidden="true">
+          <div class="gift-lid"></div>
+          <div class="gift-body"></div>
+        </div>
+        <button class="primary-button next-button" type="button">Open</button>
+      </section>
+
+      <section class="page page-nine" data-page="9">
+        <p class="eyebrow"></p>
+        <h2>Happy Birthday Sagari 💞</h2>
+        <p class="final-message">
+          May your life be filled with love, laughter, good health, success, and all the happiness you deserve 💝.
+        </p>
+      </section>
+    </main>
+
+    <button id="soundToggle" class="sound-toggle" type="button" aria-label="Toggle music">Music</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
